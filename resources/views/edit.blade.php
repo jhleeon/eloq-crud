@@ -16,24 +16,24 @@
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <div class="card">
-                        <div class="card-header d-flex justify-content-between"><span>ADD POST</span><a href="/index" class="btn btn-secondary">List of Post</a></div>
-                        @if(Session::has('post_created'))
+                        <div class="card-header d-flex justify-content-between"><span>Edit Post</span><a href="/index" class="btn btn-secondary">List of Post</a></div>
+                        @if(Session::has('post_update'))
                         <div class="alert alert-success" role="alert">
-                            {{Session::get('post_created')}}
+                            {{Session::get('post_update')}}
                         </div>
                         @endif
                         <div class="card-body">
-                            <form action="{{route('post.create')}}" method="POST">
+                            <form action="{{route('post.update',['id'=>$post->id])}}" method="POST">
                                 @csrf
                                 <div class="form-group mb-2">
                                     <label for="title">Post Title</label>
-                                    <input type="text" name="title" class="form-control" id="title" placeholder="Enter Post Title">
+                                    <input type="text" name="title" class="form-control" id="title" value="{{$post->title}}">
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="body">Post Description</label>
-                                    <textarea name="body" class="form-control" id="body" rows="3"></textarea>
+                                    <textarea name="body" class="form-control" id="body" rows="3">{{$post->body}}</textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Add Post</button>
+                                <button type="submit" class="btn btn-primary">Edit Post</button>
                             </form>
                         </div>
                     </div>

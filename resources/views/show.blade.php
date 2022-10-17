@@ -18,7 +18,9 @@
                     <div class="card">
                         <div class="card-header">Showing Data...</div>
                         <div class="card-body">
-                            <div class="text-center"><h4>{{$post->title}}</h4></div>
+                            <div class="text-center">
+                                <h4>{{$post->title}}</h4>
+                            </div>
                             <hr>
                             <div>{{$post->body}}</div>
                         </div>

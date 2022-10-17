@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header"><a href="/add-post" class="btn btn-success">Add Post</a></div>
+                        <div class="card-header"><a href="/create" class="btn btn-success">Add Post</a></div>
                         @if(Session::has('post_delete'))
                         <div class="alert alert-danger" role="alert">
                             {{ Session::get('post_delete')}};

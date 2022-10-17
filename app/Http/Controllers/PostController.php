@@ -7,18 +7,16 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function addPost(){
-        return view('add-post');
+    public function create(){
+        return view('create');
     }
 
-    public function createPost(Request $request){
+    public function store(Request $request){
         $post = new Post();
-
         $post->title = $request->title;
         $post->body = $request->body;
         $post->save();
         return back()->with('post_created','post has been created successfully');
-
     }
 
     public function index(){
@@ -36,6 +34,14 @@ class PostController extends Controller
         return view('edit',compact('post'));
     }
 
+    public function update(Request $request,$id){
+        $post = Post::find($id);
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->save();
+        return back()->with('post_update',"Post Updated Successfully");
+    }
+    
     public function delete($id){
         Post::where('id',$id)->delete();
         return back()->with('post_delete',"Post Deleted Successfully");
