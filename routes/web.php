@@ -18,3 +18,6 @@ Route::get('/add-post',[PostController::class,'addPost']);
 Route::post('/create-post',[PostController::class,'createPost'])->name('post.create');
 Route::get('/index',[PostController::class,'index']);
 Route::get('/show/{id}',[PostController::class,'show']);
+Route::get('/delete/{id}',[PostController::class,'delete']);
+Route::get('/edit/{id}',[PostController::class,'edit']);
+

@@ -29,6 +29,15 @@ class PostController extends Controller
     public function show($id){
         $post = Post::where('id',$id)->first();
         return view('show',compact('post'));
+    }
 
+    public function edit($id){
+        $post = Post::find($id);
+        return view('edit',compact('post'));
+    }
+
+    public function delete($id){
+        Post::where('id',$id)->delete();
+        return back()->with('post_delete',"Post Deleted Successfully");
     }
 }

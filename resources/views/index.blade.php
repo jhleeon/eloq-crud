@@ -17,6 +17,11 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header"><a href="/add-post" class="btn btn-success">Add Post</a></div>
+                        @if(Session::has('post_delete'))
+                        <div class="alert alert-danger" role="alert">
+                            {{ Session::get('post_delete')}};
+                        </div>
+                        @endif
                         <div class="card-body">
                             <table class="table table-striped">
                                 <thead class="bg-warning text-center">
@@ -29,7 +34,11 @@
                                     <tr class="text-center">
                                         <td>{{$post->title}}</td>
                                         <td>{{$post->body}}</td>
-                                        <td><a href="/show/{{$post->id}}" class="btn btn-primary">Show</a></td>
+                                        <td>
+                                            <a href="/show/{{$post->id}}" class="btn btn-primary">Details</a>
+                                            <a href="/edit/{{$post->id}}" class="btn btn-warning">Edit</a>
+                                            <a href="/delete/{{$post->id}}" class="btn btn-danger">Delete</a>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
